@@ -111,7 +111,7 @@ def get_ciba():
     return note_ch, note_en
 
 
-def send_message(to_user, access_token, city_name, weather, max_temperature, min_temperature, note_ch, note_en):
+def send_message(to_user, access_token, city_name1, weather1, max_temperature1, min_temperature1, city_name2, weather2, max_temperature2, min_temperature2,note_ch, note_en):
     url = "https://api.weixin.qq.com/cgi-bin/message/template/send?access_token={}".format(access_token)
     week_list = ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"]
     year = localtime().tm_year
@@ -141,20 +141,36 @@ def send_message(to_user, access_token, city_name, weather, max_temperature, min
                 "value": "{} {}".format(today, week),
                 "color": get_color()
             },
-            "city": {
-                "value": city_name,
+            "city1": {
+                "value": city_name1,
                 "color": get_color()
             },
-            "weather": {
-                "value": weather,
+            "weather1": {
+                "value": weather1,
                 "color": get_color()
             },
-            "min_temperature": {
-                "value": min_temperature,
+            "min_temperature1": {
+                "value": min_temperature1,
                 "color": get_color()
             },
-            "max_temperature": {
-                "value": max_temperature,
+            "max_temperature1": {
+                "value": max_temperature1,
+                "color": get_color()
+            },
+            "city2": {
+                "value": city_name2,
+                "color": get_color()
+            },
+            "weather2": {
+                "value": weather2,
+                "color": get_color()
+            },
+            "min_temperature2": {
+                "value": min_temperature2,
+                "color": get_color()
+            },
+            "max_temperature2": {
+                "value": max_temperature2,
                 "color": get_color()
             },
             "love_day": {
@@ -216,11 +232,13 @@ if __name__ == "__main__":
     # 接收的用户
     users = config["user"]
     # 传入省份和市获取天气信息
-    province, city = config["province"], config["city"]
-    weather, max_temperature, min_temperature = get_weather(province, city)
+    province1, city1 = config["province1"], config["city1"]
+    weather1, max_temperature1, min_temperature1 = get_weather(province1, city1)
+    province2, city2 = config["province2"], config["city2"]
+    weather2, max_temperature2, min_temperature2 = get_weather(province2, city2)
     # 获取词霸每日金句
     note_ch, note_en = get_ciba()
     # 公众号推送消息
     for user in users:
-        send_message(user, accessToken, city, weather, max_temperature, min_temperature, note_ch, note_en)
+        send_message(user, accessToken, city1, weather1, max_temperature1, min_temperature1,city2,weather2, max_temperature2, min_temperature2, note_ch, note_en)
     os.system("pause")

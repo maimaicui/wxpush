@@ -5,15 +5,18 @@
 # 公众号appSecret
 "app_secret": "73d3b6b9b5507d27883c87d240ec519b",
 # 模板消息id
-"template_id": "q-9x7U4ORGmNOKMe7WhzmQfMzOFWmxDli6aNOWBG9gw",
+"template_id": "Kh5XS_oQwpUsGyzlqhWAADdbZYHj_pDGoppa5sa2oD8",
 # 接收公众号消息的微信号，如果有多个，需要在[]里用英文逗号间隔，例如["wx1", "wx2"]
 "user": ["oqsl-6a0yEM-TzKK-dNJyq3KXDl8","oqsl-6cHgUsRMTyYdYTi-HL4SwLc"],
 
 # 信息配置
 # 所在省份
-"province": "浙江",
+"province1": "浙江",
+"province2": "湖北",
+
 # 所在城市
-"city": "杭州",
+"city1": "杭州",
+"city2": "武汉",
 # 生日1，修改名字为对应需要显示的名字，如果生日为农历，在最前面加上r即可
 "birthday1": {"name": "迈迈", "birthday": "2000-7-31"},
 # 生日2
